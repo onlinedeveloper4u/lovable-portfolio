@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Briefcase, Calendar } from "lucide-react";
 
 const experiences = [
   {
@@ -38,7 +39,8 @@ const Experience = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="inline-block px-3 py-1 text-sm font-medium bg-accent/10 text-accent-foreground rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 px-3 py-1 text-sm font-medium bg-accent/10 text-accent-foreground rounded-full mb-4">
+            <Briefcase size={16} />
             Experience
           </span>
           <h2 className="text-3xl md:text-4xl font-bold">Professional Journey</h2>
@@ -53,11 +55,14 @@ const Experience = () => {
               viewport={{ once: true }}
               className="relative pl-8 md:pl-0"
             >
-              <div className="md:grid md:grid-cols-5 md:gap-8">
+              <div className="md:grid md:grid-cols-5 md:gap-8 group">
                 <div className="md:col-span-2">
-                  <h3 className="text-xl font-semibold">{exp.title}</h3>
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">{exp.title}</h3>
                   <p className="text-muted-foreground mb-2">{exp.company}</p>
-                  <p className="text-sm text-accent-foreground">{exp.period}</p>
+                  <p className="text-sm text-accent-foreground flex items-center gap-2">
+                    <Calendar size={14} />
+                    {exp.period}
+                  </p>
                 </div>
                 <div className="md:col-span-3">
                   <p className="text-muted-foreground">{exp.description}</p>
