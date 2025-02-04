@@ -29,13 +29,12 @@ const Hero = () => {
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300 }}
-          className="mb-8 relative group"
+          className="mb-8"
         >
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#8B5CF6] to-[#D946EF] opacity-75 blur-lg group-hover:opacity-100 transition-opacity duration-300"></div>
           <img 
             src="/lovable-uploads/00c85b8d-348e-439d-b3c3-b6c5780b068f.png"
             alt="Muhammad Aqib Rafiqe"
-            className="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-lg relative z-10"
+            className="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-lg"
           />
         </motion.div>
         <motion.span 
