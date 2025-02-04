@@ -11,6 +11,16 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="space-y-4"
         >
+          <motion.div 
+            className="mb-8"
+            whileHover={{ scale: 1.05 }}
+          >
+            <img 
+              src="/lovable-uploads/00c85b8d-348e-439d-b3c3-b6c5780b068f.png"
+              alt="Muhammad Aqib Rafiqe"
+              className="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-lg"
+            />
+          </motion.div>
           <motion.span 
             className="inline-flex items-center gap-2 px-3 py-1 text-sm font-medium bg-[#8B5CF6] text-white rounded-full mb-4"
             whileHover={{ scale: 1.05 }}
