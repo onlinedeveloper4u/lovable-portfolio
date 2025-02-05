@@ -19,15 +19,36 @@ const Hero = () => {
   };
 
   const generateResume = () => {
-    const element = document.getElementById('portfolio-content');
+    // Select only the content we want in the resume
+    const content = document.createElement('div');
+    
+    // Add basic styling
+    content.style.padding = '40px';
+    content.style.maxWidth = '800px';
+    content.style.margin = '0 auto';
+    
+    // Get the relevant sections
+    const aboutSection = document.getElementById('about')?.cloneNode(true);
+    const experienceSection = document.getElementById('experience')?.cloneNode(true);
+    
+    if (aboutSection && experienceSection) {
+      content.appendChild(aboutSection);
+      content.appendChild(experienceSection);
+    }
+
     const opt = {
       margin: 1,
       filename: 'Muhammad_Aqib_Rafiqe_Resume.pdf',
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
+      html2canvas: { 
+        scale: 2,
+        useCORS: true,
+        logging: true
+      },
       jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
-    html2pdf().set(opt).from(element).save();
+
+    html2pdf().set(opt).from(content).save();
   };
 
   return (
@@ -37,7 +58,6 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
         className="max-w-6xl mx-auto"
-        id="portfolio-content"
       >
         <motion.span 
           variants={itemVariants}
