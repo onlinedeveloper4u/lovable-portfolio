@@ -1,6 +1,6 @@
+
 import { motion } from "framer-motion";
-import { Code, Briefcase, Mail, ArrowDown, FileDown } from "lucide-react";
-import html2pdf from 'html2pdf.js';
+import { Code, Briefcase, Mail } from "lucide-react";
 
 const Hero = () => {
   const containerVariants = {
@@ -18,112 +18,60 @@ const Hero = () => {
     visible: { opacity: 1, y: 0 }
   };
 
-  const generateResume = () => {
-    // Select only the content we want in the resume
-    const content = document.createElement('div');
-    
-    // Add basic styling
-    content.style.padding = '40px';
-    content.style.maxWidth = '800px';
-    content.style.margin = '0 auto';
-    
-    // Get the relevant sections
-    const aboutSection = document.getElementById('about')?.cloneNode(true);
-    const experienceSection = document.getElementById('experience')?.cloneNode(true);
-    
-    if (aboutSection && experienceSection) {
-      content.appendChild(aboutSection);
-      content.appendChild(experienceSection);
-    }
-
-    const opt = {
-      margin: 1,
-      filename: 'Muhammad_Aqib_Rafiqe_Resume.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { 
-        scale: 2,
-        useCORS: true,
-        logging: true
-      },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-
-    html2pdf().set(opt).from(content).save();
-  };
-
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 md:py-0 bg-gradient-to-br from-[#FDE1D3] to-[#E5DEFF]">
+    <section className="min-h-screen flex items-center justify-center px-4 py-20 md:py-0 bg-gradient-to-br from-[#1a1a2e] to-[#16213e]">
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-6xl mx-auto"
+        className="text-center max-w-4xl mx-auto"
       >
-        <motion.span 
+        <motion.div 
           variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          className="inline-flex items-center gap-2 px-3 py-1 text-sm font-medium bg-[#8B5CF6] text-white rounded-full mb-4"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0d1117] border border-[#30363d] mb-6"
         >
-          <Code size={16} className="animate-bounce" />
-          Senior Software Engineer
-        </motion.span>
+          <Code size={20} className="text-[#58a6ff]" />
+          <span className="text-gray-200 font-medium">Senior Software Engineer</span>
+          <Code size={20} className="text-[#58a6ff]" />
+        </motion.div>
+        
         <motion.h1
           variants={itemVariants}
-          className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#8B5CF6] via-[#D946EF] to-[#F97316] text-transparent bg-clip-text animate-text"
+          className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#58a6ff] via-[#88d1f1] to-[#58a6ff] text-transparent bg-clip-text animate-text"
         >
           Muhammad Aqib Rafiqe
         </motion.h1>
+        
         <motion.p
           variants={itemVariants}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in"
+          className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           Crafting exceptional digital experiences with modern technologies and innovative solutions.
         </motion.p>
+        
         <motion.div
           variants={itemVariants}
-          className="flex flex-wrap justify-center gap-4"
+          className="flex justify-center gap-4"
         >
           <motion.a
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#58a6ff] text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            <Mail size={18} className="animate-bounce" />
+            <Mail size={18} />
             Get in Touch
           </motion.a>
-          <motion.button
-            onClick={generateResume}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-lg font-medium border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <FileDown size={18} className="animate-pulse" />
-            Download Resume
-          </motion.button>
+          
           <motion.a
             href="#experience"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-lg font-medium border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#0d1117] text-gray-200 rounded-lg font-medium border border-[#30363d] shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <Briefcase size={18} />
             View Experience
           </motion.a>
-        </motion.div>
-        <motion.div
-          variants={itemVariants}
-          animate={{ 
-            y: [0, 10, 0],
-          }}
-          transition={{ 
-            duration: 2,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-          className="mt-16"
-        >
-          <ArrowDown className="w-6 h-6 mx-auto text-muted-foreground animate-bounce" />
         </motion.div>
       </motion.div>
     </section>
