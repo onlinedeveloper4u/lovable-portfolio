@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart, Users, FileText, CalendarClock } from "lucide-react";
+import { BarChart, Users, FileText, CalendarClock, Briefcase } from "lucide-react";
 
 const Dashboard = () => {
   return (
