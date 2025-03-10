@@ -1,8 +1,28 @@
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Globe, Phone, MessageSquare } from "lucide-react";
+import { Mail, Linkedin, Github, Globe, Phone, MessageSquare, Users, Eye, Clock } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Contact = () => {
+  const [visitorCount, setVisitorCount] = useState<number>(0);
+  const [lastVisit, setLastVisit] = useState<string>("");
+
+  useEffect(() => {
+    // Get stored visitor count or initialize it
+    const storedCount = localStorage.getItem('visitorCount');
+    const count = storedCount ? parseInt(storedCount, 10) : 0;
+    
+    // Increment count for this visit
+    const newCount = count + 1;
+    setVisitorCount(newCount);
+    localStorage.setItem('visitorCount', newCount.toString());
+    
+    // Set last visit timestamp
+    const now = new Date().toLocaleString();
+    setLastVisit(now);
+    localStorage.setItem('lastVisit', now);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -106,6 +126,45 @@ const Contact = () => {
               <p className="text-sm text-muted-foreground text-center">{item.content}</p>
             </motion.a>
           ))}
+        </motion.div>
+
+        {/* Visitor information section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-24 pt-8 border-t border-accent/10 max-w-4xl mx-auto"
+        >
+          <div className="text-center mb-8">
+            <h3 className="text-xl font-bold bg-gradient-to-r from-[#58a6ff] to-[#88d1f1] text-transparent bg-clip-text">Visitor Statistics</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="p-6 bg-card rounded-lg border border-accent/10 flex flex-col items-center"
+            >
+              <Users className="w-8 h-8 mb-4 text-[#58a6ff]" />
+              <h4 className="font-medium mb-1">Total Visits</h4>
+              <p className="text-2xl font-bold text-primary">{visitorCount}</p>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="p-6 bg-card rounded-lg border border-accent/10 flex flex-col items-center"
+            >
+              <Eye className="w-8 h-8 mb-4 text-[#D946EF]" />
+              <h4 className="font-medium mb-1">Current Session</h4>
+              <p className="text-sm text-muted-foreground">Active now</p>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="p-6 bg-card rounded-lg border border-accent/10 flex flex-col items-center"
+            >
+              <Clock className="w-8 h-8 mb-4 text-[#F97316]" />
+              <h4 className="font-medium mb-1">Last Visit</h4>
+              <p className="text-sm text-muted-foreground">{lastVisit}</p>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
