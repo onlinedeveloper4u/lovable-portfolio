@@ -1,11 +1,13 @@
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Globe, Phone, MessageSquare, Users, Eye, Clock } from "lucide-react";
+import { Mail, Linkedin, Github, Globe, Phone, MessageSquare, Users, Eye, Clock, Activity, MapPin, BarChart } from "lucide-react";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const Contact = () => {
   const [visitorCount, setVisitorCount] = useState<number>(0);
   const [lastVisit, setLastVisit] = useState<string>("");
+  const [location, setLocation] = useState<string>("Unknown");
 
   useEffect(() => {
     // Get stored visitor count or initialize it
@@ -21,6 +23,23 @@ const Contact = () => {
     const now = new Date().toLocaleString();
     setLastVisit(now);
     localStorage.setItem('lastVisit', now);
+
+    // Get location from browser if available (timezone as a proxy for location)
+    try {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (timezone) {
+        const region = timezone.split('/')[1]?.replace(/_/g, ' ') || timezone;
+        setLocation(region);
+      }
+    } catch (error) {
+      console.error('Error getting timezone:', error);
+    }
+
+    // Show welcome toast
+    toast.success("Thanks for visiting! 👋", {
+      description: `You are visitor #${newCount}`,
+      duration: 4000,
+    });
   }, []);
 
   const containerVariants = {
@@ -128,43 +147,90 @@ const Contact = () => {
           ))}
         </motion.div>
 
-        {/* Visitor information section */}
+        {/* Enhanced Visitor information section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-24 pt-8 border-t border-accent/10 max-w-4xl mx-auto"
+          className="mt-24 pt-10 border-t border-accent/10 max-w-5xl mx-auto"
         >
-          <div className="text-center mb-8">
-            <h3 className="text-xl font-bold bg-gradient-to-r from-[#58a6ff] to-[#88d1f1] text-transparent bg-clip-text">Visitor Statistics</h3>
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-[#0EA5E9] via-[#58a6ff] to-[#88d1f1] text-transparent bg-clip-text">
+              Visitor Analytics
+            </h3>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              Real-time statistics about your visit to my portfolio
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="p-6 bg-card rounded-lg border border-accent/10 flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="p-8 bg-gradient-to-br from-[#0c1c2c] to-[#182d49] rounded-2xl border border-[#2a4363] shadow-lg flex flex-col items-center relative overflow-hidden"
             >
-              <Users className="w-8 h-8 mb-4 text-[#58a6ff]" />
-              <h4 className="font-medium mb-1">Total Visits</h4>
-              <p className="text-2xl font-bold text-primary">{visitorCount}</p>
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gMjAgMCBMIDAgMCAwIDIwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxYTM2NWQiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-10"></div>
+              <div className="absolute top-0 right-0 w-20 h-20 bg-[#58a6ff] rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+              <Users className="w-12 h-12 mb-6 text-[#58a6ff]" />
+              <h4 className="font-medium mb-2 text-[#a8c7fa]">TOTAL VISITS</h4>
+              <p className="text-4xl font-bold text-white mb-2">
+                {visitorCount.toLocaleString()}
+              </p>
+              <div className="mt-3 px-3 py-1 bg-[#1d4ed8]/20 rounded-full text-xs font-medium text-[#93c5fd] flex items-center">
+                <Activity size={12} className="mr-1" /> Active tracking
+              </div>
             </motion.div>
+            
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="p-6 bg-card rounded-lg border border-accent/10 flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="p-8 bg-gradient-to-br from-[#3a1349] to-[#561e70] rounded-2xl border border-[#6e3191] shadow-lg flex flex-col items-center relative overflow-hidden"
             >
-              <Eye className="w-8 h-8 mb-4 text-[#D946EF]" />
-              <h4 className="font-medium mb-1">Current Session</h4>
-              <p className="text-sm text-muted-foreground">Active now</p>
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gMjAgMCBMIDAgMCAwIDIwIiBmaWxsPSJub25lIiBzdHJva2U9IiM2YjIxYTgiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-10"></div>
+              <div className="absolute top-0 right-0 w-20 h-20 bg-[#D946EF] rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+              <MapPin className="w-12 h-12 mb-6 text-[#D946EF]" />
+              <h4 className="font-medium mb-2 text-[#e9d5ff]">LOCATION</h4>
+              <p className="text-2xl font-bold text-white mb-2">{location}</p>
+              <div className="mt-3 px-3 py-1 bg-[#a21caf]/20 rounded-full text-xs font-medium text-[#e9d5ff] flex items-center">
+                <BarChart size={12} className="mr-1" /> Geolocation data
+              </div>
             </motion.div>
+            
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="p-6 bg-card rounded-lg border border-accent/10 flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="p-8 bg-gradient-to-br from-[#7a2800] to-[#a63c02] rounded-2xl border border-[#c85000] shadow-lg flex flex-col items-center relative overflow-hidden"
             >
-              <Clock className="w-8 h-8 mb-4 text-[#F97316]" />
-              <h4 className="font-medium mb-1">Last Visit</h4>
-              <p className="text-sm text-muted-foreground">{lastVisit}</p>
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gMjAgMCBMIDAgMCAwIDIwIiBmaWxsPSJub25lIiBzdHJva2U9IiNjMjQxMDAiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-10"></div>
+              <div className="absolute top-0 right-0 w-20 h-20 bg-[#F97316] rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+              <Clock className="w-12 h-12 mb-6 text-[#F97316]" />
+              <h4 className="font-medium mb-2 text-[#fed7aa]">LAST VISIT</h4>
+              <p className="text-xl font-bold text-white mb-2 text-center">{lastVisit}</p>
+              <div className="mt-3 px-3 py-1 bg-[#ea580c]/20 rounded-full text-xs font-medium text-[#fed7aa] flex items-center">
+                <Eye size={12} className="mr-1" /> Session tracking
+              </div>
             </motion.div>
           </div>
+          
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mt-10 text-sm text-muted-foreground"
+          >
+            <p>Analytics data stored locally and not shared with third parties.</p>
+          </motion.div>
         </motion.div>
       </div>
     </section>

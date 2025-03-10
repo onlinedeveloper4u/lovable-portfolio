@@ -1,8 +1,10 @@
+
 import { useEffect } from "react";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Experience from "../components/Experience";
 import Contact from "../components/Contact";
+import { Toaster } from "sonner";
 
 const Index = () => {
   useEffect(() => {
@@ -28,6 +30,7 @@ const Index = () => {
 
   return (
     <main className="bg-background text-foreground">
+      <Toaster position="top-right" />
       <Hero />
       <About />
       <Experience />
