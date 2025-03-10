@@ -1,15 +1,32 @@
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Globe, Phone, MessageSquare, Users, Eye, Clock, Activity, MapPin, BarChart } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Mail, Linkedin, Github, Globe, Phone, MessageSquare, Users, Eye, Clock, Activity, MapPin, BarChart } from "lucide-react";
 import { toast } from "sonner";
 
+// Default contact info as a fallback
+const defaultContactInfo = {
+  email: "onlinedeveloper4u@gmail.com",
+  linkedin: "https://www.linkedin.com/in/onlinedeveloper4u",
+  github: "https://github.com/onlinedeveloper4u",
+  phone: "+923227221032",
+  whatsapp: "https://wa.me/923227221032",
+  skype: "live:.cid.94264000f5938ffb"
+};
+
 const Contact = () => {
+  const [contactInfo, setContactInfo] = useState(defaultContactInfo);
   const [visitorCount, setVisitorCount] = useState<number>(0);
   const [lastVisit, setLastVisit] = useState<string>("");
   const [location, setLocation] = useState<string>("Unknown");
 
   useEffect(() => {
+    // Load contact info from localStorage if available
+    const storedContactInfo = localStorage.getItem("portfolioContactInfo");
+    if (storedContactInfo) {
+      setContactInfo(JSON.parse(storedContactInfo));
+    }
+
     // Get stored visitor count or initialize it
     const storedCount = localStorage.getItem('visitorCount');
     const count = storedCount ? parseInt(storedCount, 10) : 0;
@@ -63,6 +80,46 @@ const Contact = () => {
     }
   };
 
+  // Create contact items array from the contactInfo object
+  const contactItems = [
+    {
+      icon: Mail,
+      title: "Email",
+      content: contactInfo.email,
+      href: `mailto:${contactInfo.email}`
+    },
+    {
+      icon: Linkedin,
+      title: "LinkedIn",
+      content: "Connect with me",
+      href: contactInfo.linkedin
+    },
+    {
+      icon: Github,
+      title: "GitHub",
+      content: "View my projects",
+      href: contactInfo.github
+    },
+    {
+      icon: Phone,
+      title: "Phone",
+      content: contactInfo.phone,
+      href: `tel:${contactInfo.phone}`
+    },
+    {
+      icon: MessageSquare,
+      title: "WhatsApp",
+      content: "Message me",
+      href: contactInfo.whatsapp
+    },
+    {
+      icon: Globe,
+      title: "Skype",
+      content: contactInfo.skype,
+      href: `skype:${contactInfo.skype}?chat`
+    }
+  ];
+
   return (
     <section id="contact" className="py-20 px-4 bg-gradient-to-br from-accent/5 to-background">
       <div className="max-w-6xl mx-auto">
@@ -89,44 +146,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"
         >
-          {[
-            {
-              icon: Mail,
-              title: "Email",
-              content: "onlinedeveloper4u@gmail.com",
-              href: "mailto:onlinedeveloper4u@gmail.com"
-            },
-            {
-              icon: Linkedin,
-              title: "LinkedIn",
-              content: "Connect with me",
-              href: "https://www.linkedin.com/in/onlinedeveloper4u"
-            },
-            {
-              icon: Github,
-              title: "GitHub",
-              content: "View my projects",
-              href: "https://github.com/onlinedeveloper4u"
-            },
-            {
-              icon: Phone,
-              title: "Phone",
-              content: "+923227221032",
-              href: "tel:+923227221032"
-            },
-            {
-              icon: MessageSquare,
-              title: "WhatsApp",
-              content: "Message me",
-              href: "https://wa.me/923227221032"
-            },
-            {
-              icon: Globe,
-              title: "Skype",
-              content: "live:.cid.94264000f5938ffb",
-              href: "skype:live:.cid.94264000f5938ffb?chat"
-            }
-          ].map((item, index) => (
+          {contactItems.map((item, index) => (
             <motion.a
               key={index}
               variants={itemVariants}

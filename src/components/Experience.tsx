@@ -1,8 +1,10 @@
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Briefcase, Calendar } from "lucide-react";
 
-const experiences = [
+// Define default experiences as a fallback
+const defaultExperiences = [
   {
     title: "Software Engineer (Freelance)",
     company: "Self-employed",
@@ -30,6 +32,16 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const [experiences, setExperiences] = useState(defaultExperiences);
+
+  useEffect(() => {
+    // Load experiences from localStorage if available
+    const storedExperiences = localStorage.getItem("portfolioExperiences");
+    if (storedExperiences) {
+      setExperiences(JSON.parse(storedExperiences));
+    }
+  }, []);
+
   return (
     <section id="experience" className="py-20 px-4 bg-accent/5">
       <div className="max-w-6xl mx-auto">
