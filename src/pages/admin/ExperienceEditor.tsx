@@ -16,24 +16,28 @@ const defaultExperiences = [
     company: "Self-employed",
     period: "October 2024 - Present",
     description: "iOS development using Swift, SwiftUI, and UIKit. MERN stack development and cross-platform solutions.",
+    startDate: "2024-10",
   },
   {
     title: "MERN Stack Developer",
     company: "iParagons",
     period: "November 2022 - Present",
     description: "Full-stack web development using MongoDB, Express.js, React.js, and Node.js.",
+    startDate: "2022-11",
   },
   {
     title: "iOS Developer",
     company: "iParagons",
     period: "November 2020 - Present",
     description: "Developed the Leaf app, implementing features such as location views, in-app notifications, and custom community calendar.",
+    startDate: "2020-11",
   },
   {
     title: "Laravel Developer (Internship)",
     company: "Ranglerz",
     period: "2020",
     description: "Contributed to web textile portal project using Laravel framework.",
+    startDate: "2020-01",
   },
 ];
 
