@@ -10,7 +10,7 @@ const defaultProjects = [
     description: "A social networking app for local communities with features like location-based services, in-app notifications, and custom calendars.",
     technologies: "Swift, SwiftUI, Firebase, MapKit",
     imageUrl: "https://placehold.co/600x400/5046e4/white?text=Leaf+App",
-    link: "https://example.com/leaf-app"
+    link: "https://apps.apple.com/us/app/leaf-book-your-friends/id1040588046"
   },
   {
     title: "E-commerce Platform",
