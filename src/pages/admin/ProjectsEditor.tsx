@@ -11,25 +11,18 @@ import { Textarea } from "@/components/ui/textarea";
 // Default projects data
 const defaultProjects = [
   {
-    title: "Leaf App",
-    description: "A social networking app for local communities with features like location-based services, in-app notifications, and custom calendars.",
-    technologies: "Swift, SwiftUI, Firebase, MapKit",
-    imageUrl: "https://placehold.co/600x400/5046e4/white?text=Leaf+App",
-    link: "https://example.com/leaf-app"
+    title: "Leaf - Book Your Friends",
+    description: "The playful, AI-powered event planner that makes organizing small group gatherings a breeze! Import events, manage RSVPs, and coordinate plans with smart checklists and group scheduling.",
+    technologies: "iOS, Swift, AI Integration, Event Planning",
+    imageUrl: "https://placehold.co/600x400/22c55e/white?text=Leaf+App",
+    link: "https://apps.apple.com/lt/app/leaf-book-your-friends/id1040588046"
   },
   {
-    title: "E-commerce Platform",
-    description: "A full-stack e-commerce solution with product management, cart functionality, and payment processing.",
-    technologies: "React, Node.js, MongoDB, Stripe",
-    imageUrl: "https://placehold.co/600x400/e44650/white?text=E-commerce",
-    link: "https://example.com/ecommerce"
-  },
-  {
-    title: "Task Management System",
-    description: "A comprehensive task management application with team collaboration features and real-time updates.",
-    technologies: "React Native, Firebase, Redux",
-    imageUrl: "https://placehold.co/600x400/46e450/white?text=Task+App",
-    link: "https://example.com/task-app"
+    title: "Ombi - Preview Restaurants",
+    description: "An immersive iOS & web app that lets you preview and book authentic restaurants through video. Experience the ambiance and see the food before you visit.",
+    technologies: "iOS, Video Streaming, Restaurant Booking",
+    imageUrl: "https://placehold.co/600x400/f97316/white?text=Ombi+App",
+    link: "https://apps.apple.com/us/app/ombi-preview-restaurants/id1598753264"
   }
 ];
 
