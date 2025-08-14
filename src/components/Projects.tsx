@@ -1,23 +1,27 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Code, ExternalLink } from "lucide-react";
+import { Code, Smartphone } from "lucide-react";
+import leafIcon from "@/assets/leaf-app-icon.png";
+import ombiIcon from "@/assets/ombi-app-icon.png";
 
 // Define default projects as a fallback
 const defaultProjects = [
   {
     title: "Leaf - Book Your Friends",
-    description: "The playful, AI-powered event planner that makes organizing small group gatherings a breeze! Import events, manage RSVPs, and coordinate plans with smart checklists and group scheduling.",
-    technologies: "iOS, Swift, AI Integration, Event Planning",
-    imageUrl: "https://placehold.co/600x400/22c55e/white?text=Leaf+App",
-    link: "https://apps.apple.com/lt/app/leaf-book-your-friends/id1040588046"
+    description: "Planning a casual hangout or hobby meetup shouldn't feel like a full-time job. Meet Leaf – the playful, AI-powered event planner that makes organizing small group gatherings a breeze! Whether you're the friend who always hosts or just getting into event planning, Leaf keeps event scheduling, task management, and social organizing all in one place. No more juggling multiple apps or endless text chains — Leaf turns coordinating plans into part of the fun. Import events from Partiful, Luma, Eventbrite, SeatGeek, and Fandango. Smart checklists, AI-generated descriptions, group scheduler, and micro-planner assistant help you focus on the fun while Leaf handles the details.",
+    technologies: "iOS, Swift, AI Integration, Event Planning, Group Scheduling",
+    imageUrl: leafIcon,
+    link: "https://apps.apple.com/lt/app/leaf-book-your-friends/id1040588046",
+    isApp: true
   },
   {
     title: "Ombi - Preview Restaurants",
-    description: "An immersive iOS & web app that lets you preview and book authentic restaurants through video. Experience the ambiance and see the food before you visit.",
-    technologies: "iOS, Video Streaming, Restaurant Booking",
-    imageUrl: "https://placehold.co/600x400/f97316/white?text=Ombi+App",
-    link: "https://apps.apple.com/us/app/ombi-preview-restaurants/id1598753264"
+    description: "An immersive iOS & web app that lets you preview and book authentic restaurants through video. Experience the ambiance and see the food before you visit. Discover restaurants through immersive video previews that showcase the atmosphere, cuisine, and dining experience. Book tables directly through the app and make informed dining decisions with real restaurant footage.",
+    technologies: "iOS, Video Streaming, Restaurant Booking, Mobile App",
+    imageUrl: ombiIcon,
+    link: "https://apps.apple.com/us/app/ombi-preview-restaurants/id1598753264",
+    isApp: true
   }
 ];
 
@@ -62,16 +66,16 @@ const Projects = () => {
               viewport={{ once: true }}
               className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-accent/10 group"
             >
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden bg-gradient-to-br from-background to-accent/5 flex items-center justify-center">
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 rounded-2xl shadow-lg"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{project.description}</p>
                 <div className="mb-4">
                   <span className="text-xs font-medium bg-accent/10 text-accent-foreground px-3 py-1 rounded-full">
                     {project.technologies}
@@ -83,8 +87,8 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                 >
-                  <span>View Project</span>
-                  <ExternalLink size={14} />
+                  <span>{project.isApp ? "App Store" : "View Project"}</span>
+                  <Smartphone size={14} />
                 </a>
               </div>
             </motion.div>

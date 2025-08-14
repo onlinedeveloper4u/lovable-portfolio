@@ -12,17 +12,19 @@ import { Textarea } from "@/components/ui/textarea";
 const defaultProjects = [
   {
     title: "Leaf - Book Your Friends",
-    description: "The playful, AI-powered event planner that makes organizing small group gatherings a breeze! Import events, manage RSVPs, and coordinate plans with smart checklists and group scheduling.",
-    technologies: "iOS, Swift, AI Integration, Event Planning",
-    imageUrl: "https://placehold.co/600x400/22c55e/white?text=Leaf+App",
-    link: "https://apps.apple.com/lt/app/leaf-book-your-friends/id1040588046"
+    description: "Planning a casual hangout or hobby meetup shouldn't feel like a full-time job. Meet Leaf – the playful, AI-powered event planner that makes organizing small group gatherings a breeze! Whether you're the friend who always hosts or just getting into event planning, Leaf keeps event scheduling, task management, and social organizing all in one place. No more juggling multiple apps or endless text chains — Leaf turns coordinating plans into part of the fun. Import events from Partiful, Luma, Eventbrite, SeatGeek, and Fandango. Smart checklists, AI-generated descriptions, group scheduler, and micro-planner assistant help you focus on the fun while Leaf handles the details.",
+    technologies: "iOS, Swift, AI Integration, Event Planning, Group Scheduling",
+    imageUrl: "/src/assets/leaf-app-icon.png",
+    link: "https://apps.apple.com/lt/app/leaf-book-your-friends/id1040588046",
+    isApp: true
   },
   {
     title: "Ombi - Preview Restaurants",
-    description: "An immersive iOS & web app that lets you preview and book authentic restaurants through video. Experience the ambiance and see the food before you visit.",
-    technologies: "iOS, Video Streaming, Restaurant Booking",
-    imageUrl: "https://placehold.co/600x400/f97316/white?text=Ombi+App",
-    link: "https://apps.apple.com/us/app/ombi-preview-restaurants/id1598753264"
+    description: "An immersive iOS & web app that lets you preview and book authentic restaurants through video. Experience the ambiance and see the food before you visit. Discover restaurants through immersive video previews that showcase the atmosphere, cuisine, and dining experience. Book tables directly through the app and make informed dining decisions with real restaurant footage.",
+    technologies: "iOS, Video Streaming, Restaurant Booking, Mobile App",
+    imageUrl: "/src/assets/ombi-app-icon.png",
+    link: "https://apps.apple.com/us/app/ombi-preview-restaurants/id1598753264",
+    isApp: true
   }
 ];
 
@@ -47,7 +49,8 @@ const ProjectsEditor = () => {
         description: "",
         technologies: "",
         imageUrl: "https://placehold.co/600x400/cccccc/333333?text=New+Project",
-        link: ""
+        link: "",
+        isApp: false
       },
     ]);
   };
@@ -58,7 +61,7 @@ const ProjectsEditor = () => {
     setProjects(newProjects);
   };
 
-  const handleUpdateProject = (index: number, field: string, value: string) => {
+  const handleUpdateProject = (index: number, field: string, value: string | boolean) => {
     const newProjects = [...projects];
     newProjects[index] = {
       ...newProjects[index],
@@ -157,9 +160,22 @@ const ProjectsEditor = () => {
                   <Textarea
                     value={project.description}
                     onChange={(e) => handleUpdateProject(index, "description", e.target.value)}
-                    placeholder="Describe your project"
-                    rows={4}
+                    placeholder="Describe your project in detail"
+                    rows={6}
                   />
+                </div>
+                
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id={`isApp-${index}`}
+                    checked={project.isApp || false}
+                    onChange={(e) => handleUpdateProject(index, "isApp", e.target.checked)}
+                    className="rounded"
+                  />
+                  <label htmlFor={`isApp-${index}`} className="text-sm font-medium">
+                    This is a mobile app (shows "App Store" instead of "View Project")
+                  </label>
                 </div>
                 
                 <div className="flex justify-end">
