@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Code, Briefcase, Mail } from "lucide-react";
+import { Code, Briefcase, Mail, Download } from "lucide-react";
 
 const Hero = () => {
   const containerVariants = {
@@ -57,19 +57,44 @@ const Hero = () => {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#58a6ff] text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#58a6ff] text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 group"
           >
-            <Mail size={18} />
+            <motion.div
+              whileHover={{ x: 2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Mail size={18} />
+            </motion.div>
             Get in Touch
+          </motion.a>
+          
+          <motion.a
+            href="#cv-downloads"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#22c55e] text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 group"
+          >
+            <motion.div
+              whileHover={{ y: -2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Download size={18} />
+            </motion.div>
+            Download CV
           </motion.a>
           
           <motion.a
             href="#experience"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#0d1117] text-gray-200 rounded-lg font-medium border border-[#30363d] shadow-lg hover:shadow-xl transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#0d1117] text-gray-200 rounded-lg font-medium border border-[#30363d] shadow-lg hover:shadow-xl transition-all duration-300 group"
           >
-            <Briefcase size={18} />
+            <motion.div
+              whileHover={{ rotate: 15 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Briefcase size={18} />
+            </motion.div>
             View Experience
           </motion.a>
         </motion.div>
