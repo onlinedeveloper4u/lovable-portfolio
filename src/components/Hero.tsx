@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Code, Briefcase, Mail } from "lucide-react";
+import { Code, Briefcase, Mail, Download } from "lucide-react";
 
 const Hero = () => {
   const containerVariants = {
@@ -51,7 +51,7 @@ const Hero = () => {
         
         <motion.div
           variants={itemVariants}
-          className="flex justify-center gap-4"
+          className="flex justify-center gap-4 flex-wrap"
         >
           <motion.a
             href="#contact"
@@ -71,6 +71,18 @@ const Hero = () => {
           >
             <Briefcase size={18} />
             View Experience
+          </motion.a>
+
+          <motion.a
+            href="https://storage.rxresu.me/cmebs7d1s6kwerxdfp884qspo/resumes/mern-stack-developer.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#22c55e] text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <Download size={18} />
+            Download CV
           </motion.a>
         </motion.div>
       </motion.div>
