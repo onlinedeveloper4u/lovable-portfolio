@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Experience from "../components/Experience";
 import Projects from "../components/Projects";
+import CVDownloads from "../components/CVDownloads";
 import Contact from "../components/Contact";
 import { Toaster } from "sonner";
 import { isAuthenticated } from "@/lib/auth";
@@ -52,6 +53,7 @@ const Index = () => {
       <About />
       <Projects />
       <Experience />
+      <CVDownloads />
       <Contact />
     </main>
   );
