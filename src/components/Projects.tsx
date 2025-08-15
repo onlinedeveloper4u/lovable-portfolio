@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Code, Smartphone } from "lucide-react";
-import leafIcon from "/lovable-uploads/00c85b8d-348e-439d-b3c3-b6c5780b068f.png";
-import ombiIcon from "/lovable-uploads/3b088c36-08e3-491e-a599-587326bd45ed.png";
-import creatorIcon from "@/assets/creator-app-icon.png";
+import leafIcon from "/lovable-uploads/df3c2462-8c16-4857-af52-f04431d42543.png";
+import ombiIcon from "/lovable-uploads/24e71ac5-ca00-4833-89e1-cd14ba31993b.png";
+import creatorIcon from "/lovable-uploads/49782510-2ca3-4464-acd4-d75f002421ba.png";
 
 // Define default projects as a fallback
 const defaultProjects = [
