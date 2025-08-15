@@ -2,8 +2,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Code, Smartphone } from "lucide-react";
-import leafIcon from "@/assets/leaf-app-icon.png";
-import ombiIcon from "@/assets/ombi-app-icon.png";
+import leafIcon from "/lovable-uploads/00c85b8d-348e-439d-b3c3-b6c5780b068f.png";
+import ombiIcon from "/lovable-uploads/3b088c36-08e3-491e-a599-587326bd45ed.png";
+import creatorIcon from "@/assets/creator-app-icon.png";
 
 // Define default projects as a fallback
 const defaultProjects = [
@@ -21,6 +22,14 @@ const defaultProjects = [
     technologies: "iOS, Video Streaming, Restaurant Booking, Mobile App",
     imageUrl: ombiIcon,
     link: "https://apps.apple.com/us/app/ombi-preview-restaurants/id1598753264",
+    isApp: true
+  },
+  {
+    title: "Creator Music Studio",
+    description: "Your ultimate companion for music creation and production. Creator Music Studio transforms your creative process with powerful tools for composing, recording, and producing professional-quality music. Whether you're a seasoned producer or just starting your musical journey, this comprehensive studio provides everything you need to bring your musical ideas to life. Features include advanced audio recording, multi-track editing, virtual instruments, effects processing, and seamless collaboration tools.",
+    technologies: "iOS, Audio Production, Music Creation, Digital Audio Workstation",
+    imageUrl: creatorIcon,
+    link: "https://apps.apple.com/us/app/creator-music-studio/id6445974873",
     isApp: true
   }
 ];
