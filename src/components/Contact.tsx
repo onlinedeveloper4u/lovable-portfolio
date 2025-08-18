@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Mail, Linkedin, Github, Globe, Phone, MessageSquare } from "lucide-react";
+import { Mail, Linkedin, Github, Video, Phone, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
 // Default contact info as a fallback
@@ -11,7 +11,7 @@ const defaultContactInfo = {
   github: "https://github.com/onlinedeveloper4u",
   phone: "+923227221032",
   whatsapp: "https://wa.me/923227221032",
-  skype: "live:.cid.94264000f5938ffb"
+  teams: "https://teams.microsoft.com"
 };
 
 const Contact = () => {
@@ -73,16 +73,16 @@ const Contact = () => {
       href: `tel:${contactInfo.phone}`
     },
     {
-      icon: MessageSquare,
+      icon: MessageCircle,
       title: "WhatsApp",
       content: "Message me",
       href: contactInfo.whatsapp
     },
     {
-      icon: Globe,
-      title: "Skype",
-      content: contactInfo.skype,
-      href: `skype:${contactInfo.skype}?chat`
+      icon: Video,
+      title: "Microsoft Teams",
+      content: "Video call",
+      href: contactInfo.teams
     }
   ];
 
