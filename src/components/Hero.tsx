@@ -31,7 +31,7 @@ const Hero = () => {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0d1117] border border-[#30363d] mb-6"
         >
           <Code size={20} className="text-[#58a6ff]" />
-          <span className="text-gray-200 font-medium">Senior Software Engineer</span>
+          <span className="text-gray-200 font-medium">Senior Software Engineer – iOS, React Native, MERN</span>
           <Code size={20} className="text-[#58a6ff]" />
         </motion.div>
         
@@ -46,7 +46,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          Crafting exceptional digital experiences with modern technologies and innovative solutions.
+          Bringing ideas to life across web and mobile – specializing in iOS, React Native, and MERN stack development.
         </motion.p>
         
         <motion.div
