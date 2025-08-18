@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
-import { Save, Mail, Linkedin, Github, Globe, Phone, MessageSquare } from "lucide-react";
+import { Save, Mail, Linkedin, Github, Video, Phone, MessageCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,7 +14,7 @@ const defaultContactInfo = {
   github: "https://github.com/onlinedeveloper4u",
   phone: "+923227221032",
   whatsapp: "https://wa.me/923227221032",
-  skype: "live:.cid.94264000f5938ffb"
+  teams: "https://teams.microsoft.com"
 };
 
 const ContactEditor = () => {
@@ -115,7 +115,7 @@ const ContactEditor = () => {
             
             <div className="space-y-2">
               <label className="text-sm font-medium flex items-center gap-2">
-                <MessageSquare size={16} />
+                <MessageCircle size={16} />
                 WhatsApp
               </label>
               <Input
@@ -127,13 +127,13 @@ const ContactEditor = () => {
             
             <div className="space-y-2">
               <label className="text-sm font-medium flex items-center gap-2">
-                <Globe size={16} />
-                Skype ID
+                <Video size={16} />
+                Microsoft Teams
               </label>
               <Input
-                value={contactInfo.skype}
-                onChange={(e) => handleUpdate("skype", e.target.value)}
-                placeholder="your.skype.id"
+                value={contactInfo.teams}
+                onChange={(e) => handleUpdate("teams", e.target.value)}
+                placeholder="https://teams.microsoft.com"
               />
             </div>
           </div>
