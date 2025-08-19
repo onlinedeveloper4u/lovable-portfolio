@@ -6,33 +6,45 @@ import { Briefcase, Calendar, MapPin, Award, Code2 } from "lucide-react";
 // Define default experiences as a fallback (sorted by date - newest first)
 const defaultExperiences = [
   {
-    title: "Software Engineer (Freelance)",
+    title: "Freelancer",
     company: "Self-employed",
-    period: "October 2024 - Present",
+    period: "Oct 2024 - Present",
     description: "iOS development using Swift, SwiftUI, and UIKit. MERN stack development and cross-platform solutions.",
     startDate: "2024-10",
+    location: "Remote"
+  },
+  {
+    title: "Senior iOS Developer",
+    company: "iParagons",
+    period: "Jul 2024 - Present",
+    description: "Built Leaf, an AI-powered event planning app using Swift (iOS), SwiftUI, and Core Data with backend integrations in Node.js & MongoDB. Implemented event scheduling, task management, and social coordination within a single mobile platform. Integrated third-party APIs to import events from Partiful, Luma, Eventbrite, SeatGeek, and Fandango. Developed AI-driven features including event description generation and a micro-planner assistant using OpenAI APIs.",
+    startDate: "2024-07",
+    location: "Gujrat, Pakistan"
+  },
+  {
+    title: "Freelancer",
+    company: "Self-employed",
+    period: "Jul 2021 - May 2023",
+    description: "Full-stack development projects focusing on MERN stack applications and iOS mobile development.",
+    startDate: "2021-07",
+    location: "Remote"
   },
   {
     title: "MERN Stack Developer",
     company: "iParagons",
-    period: "November 2022 - Present",
-    description: "Full-stack web development using MongoDB, Express.js, React.js, and Node.js.",
+    period: "Nov 2022 - Present",
+    description: "Full-stack web development using MongoDB, Express.js, React.js, and Node.js. Built admin dashboards, REST APIs, and integrated backend systems for mobile applications.",
     startDate: "2022-11",
+    location: "Gujrat, Pakistan"
   },
   {
-    title: "iOS Developer",
+    title: "Junior iOS Developer",
     company: "iParagons",
-    period: "November 2020 - Present",
-    description: "Developed the Leaf app, implementing features such as location views, in-app notifications, and custom community calendar.",
+    period: "Nov 2020 - Jun 2024",
+    description: "Designed and implemented Home Tab features, including location views, people views, and multi-select 'Make Plans' flow. Developed real-time In-App Notifications module, Collections module, Explore Page with advanced filters, Custom Community Calendar, Edit Profile module, and Split the Bill functionality. Performed bug fixes, performance optimization, and UI refinements.",
     startDate: "2020-11",
-  },
-  {
-    title: "Laravel Developer (Internship)",
-    company: "Ranglerz",
-    period: "2020",
-    description: "Contributed to web textile portal project using Laravel framework.",
-    startDate: "2020-01",
-  },
+    location: "Gujrat, Pakistan"
+  }
 ];
 
 const Experience = () => {

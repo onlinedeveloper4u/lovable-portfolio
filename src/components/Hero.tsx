@@ -46,7 +46,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          Crafting exceptional digital experiences with modern technologies and innovative solutions.
+          iOS Developer | MERN Stack Developer | Building innovative mobile and web solutions with Swift, SwiftUI, React, and Node.js
         </motion.p>
         
         <motion.div

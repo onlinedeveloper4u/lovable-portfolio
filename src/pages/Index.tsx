@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import Skills from "../components/Skills";
 import Experience from "../components/Experience";
 import Projects from "../components/Projects";
 import CVDownloads from "../components/CVDownloads";
@@ -51,6 +52,7 @@ const Index = () => {
       
       <Hero />
       <About />
+      <Skills />
       <Projects />
       <Experience />
       <CVDownloads />
