@@ -20,12 +20,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        inter: ['Inter', 'system-ui', 'sans-serif'],
         sans: ["Inter", "sans-serif"],
-      },
-      backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, hsl(258 90% 66%) 0%, hsl(316 73% 52%) 100%)',
-        'gradient-secondary': 'linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(263 70% 50%) 100%)',
       },
       colors: {
         border: "hsl(var(--border))",
