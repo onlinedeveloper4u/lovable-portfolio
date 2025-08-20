@@ -88,7 +88,7 @@ const CVDownloads = () => {
               Native iOS development with Swift, UIKit, and modern iOS frameworks.
             </p>
             <motion.a
-              href="https://flowcv.com/resume/si2po2d1ldvf"
+              href="https://rxresu.me/onlinedeveloper4u/aqib-ios-rxresu"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
