@@ -5,6 +5,7 @@ import { Code, Smartphone } from "lucide-react";
 import leafIcon from "/lovable-uploads/0535b3ff-2532-4ceb-9b7d-02e62f7af27a.png";
 import ombiIcon from "/lovable-uploads/24e71ac5-ca00-4833-89e1-cd14ba31993b.png";
 import creatorIcon from "/lovable-uploads/49782510-2ca3-4464-acd4-d75f002421ba.png";
+import trackIcon from "/lovable-uploads/bf6979bc-a5f4-431b-9be4-ebc88d57297c.png";
 
 // Define default projects as a fallback
 const defaultProjects = [
@@ -41,11 +42,11 @@ const defaultProjects = [
   {
     title: "The Track App",
     description: "A fast and minimalistic calendar and scheduling platform designed to enhance productivity through real-time event syncing, intuitive user interface, and optimized backend APIs. Focused on delivering a seamless cross-device experience with responsive design, reliable performance, and streamlined workflows to help users plan and manage their time efficiently.",
-    technologies: "React, Node.js, Calendar API, Real-time Sync",
-    imageUrl: leafIcon, // Using leaf icon as placeholder
+    technologies: "Swift, SwiftUI, Event Planning",
+    imageUrl: trackIcon,
     link: "https://thetrackapp.com/",
-    isApp: false,
-    category: "Web",
+    isApp: true,
+    category: "iOS",
     period: "Apr 2022 - May 2022"
   },
   {
