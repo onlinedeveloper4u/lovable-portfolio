@@ -65,7 +65,7 @@ const defaultProjects = [
     description: "Vooconnect is an all-in-one social networking platform designed to connect users through a variety of interactive features. The app offers functionalities such as full-screen posts, live streaming, chat with walkie-talkie capabilities, and a marketplace for local buying and selling. Users can also subscribe to content creators for exclusive access.",
     technologies: "iOS, Swift, SwiftUI, Node.js, MongoDB, REST APIs",
     imageUrl: vooconnectIcon,
-    link: "#",
+    link: "https://apps.apple.com/us/app/vooconnect/id1573637452",
     isApp: true,
     category: "iOS",
     period: "Mar 2023 - Apr 2023"
