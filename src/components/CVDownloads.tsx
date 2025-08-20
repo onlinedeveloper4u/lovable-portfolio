@@ -62,7 +62,7 @@ const CVDownloads = () => {
               Full-stack development expertise with MongoDB, Express.js, React, and Node.js.
             </p>
             <motion.a
-              href="https://storage.rxresu.me/cmebs7d1s6kwerxdfp884qspo/resumes/mern-stack-developer.pdf"
+              href="https://rxresu.me/onlinedeveloper4u/aqib-mern-rxresu"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
