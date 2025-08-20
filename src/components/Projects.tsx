@@ -135,7 +135,11 @@ const Projects = () => {
                   className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                 >
                   <span>{project.isApp ? "App Store" : "View Project"}</span>
-                  <Smartphone size={14} />
+                  {project.isApp ? (
+                    <img src="/lovable-uploads/e3d2fef8-1fe6-47de-857d-d0baaa452f90.png" alt="App Store" className="w-4 h-4" />
+                  ) : (
+                    <Smartphone size={14} />
+                  )}
                 </a>
               </div>
             </motion.div>
