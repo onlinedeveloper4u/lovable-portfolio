@@ -6,6 +6,7 @@ import leafIcon from "/lovable-uploads/0535b3ff-2532-4ceb-9b7d-02e62f7af27a.png"
 import ombiIcon from "/lovable-uploads/24e71ac5-ca00-4833-89e1-cd14ba31993b.png";
 import creatorIcon from "/lovable-uploads/49782510-2ca3-4464-acd4-d75f002421ba.png";
 import trackIcon from "/lovable-uploads/bf6979bc-a5f4-431b-9be4-ebc88d57297c.png";
+import vooconnectIcon from "/lovable-uploads/7185eb43-f0d7-495c-a39d-cdd65ceda626.png";
 
 // Define default projects as a fallback
 const defaultProjects = [
@@ -60,13 +61,13 @@ const defaultProjects = [
     period: "Nov 2020 - Present"
   },
   {
-    title: "Vooroogoo Backend APIs",
-    description: "Created comprehensive backend APIs in Node.js for an iOS application, implementing secure authentication, data management, and real-time communication features with MongoDB integration.",
-    technologies: "Node.js, MongoDB, Express, REST APIs",
-    imageUrl: ombiIcon, // Using ombi icon as placeholder
+    title: "Vooconnect",
+    description: "Vooconnect is an all-in-one social networking platform designed to connect users through a variety of interactive features. The app offers functionalities such as full-screen posts, live streaming, chat with walkie-talkie capabilities, and a marketplace for local buying and selling. Users can also subscribe to content creators for exclusive access.",
+    technologies: "iOS, Swift, SwiftUI, Node.js, MongoDB, REST APIs",
+    imageUrl: vooconnectIcon,
     link: "#",
-    isApp: false,
-    category: "MERN",
+    isApp: true,
+    category: "iOS",
     period: "Mar 2023 - Apr 2023"
   }
 ];
