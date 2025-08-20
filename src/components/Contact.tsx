@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Mail, Linkedin, Github, Video, Phone, MessageCircle } from "lucide-react";
+import { Mail, Linkedin, Github, Video, Phone, MessageCircle, Briefcase } from "lucide-react";
 import { toast } from "sonner";
 
 // Default contact info as a fallback
@@ -11,7 +11,8 @@ const defaultContactInfo = {
   github: "https://github.com/onlinedeveloper4u",
   phone: "+923227221032",
   whatsapp: "https://wa.me/923227221032",
-  teams: "https://teams.microsoft.com"
+  teams: "https://teams.microsoft.com",
+  fiverr: "https://www.fiverr.com/onlinedveloper?public_mode=true"
 };
 
 const Contact = () => {
@@ -83,6 +84,12 @@ const Contact = () => {
       title: "Microsoft Teams",
       content: "Video call",
       href: contactInfo.teams
+    },
+    {
+      icon: Briefcase,
+      title: "Fiverr",
+      content: "Hire me on Fiverr",
+      href: contactInfo.fiverr
     }
   ];
 
