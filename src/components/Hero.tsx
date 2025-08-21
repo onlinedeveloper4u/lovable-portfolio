@@ -19,7 +19,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 md:py-0 bg-gradient-to-br from-[#1a1a2e] to-[#16213e]">
+    <section id="hero" className="min-h-screen flex items-center justify-center px-4 py-20 md:py-0 bg-gradient-to-br from-[#1a1a2e] to-[#16213e]">
       <motion.div 
         variants={containerVariants}
         initial="hidden"

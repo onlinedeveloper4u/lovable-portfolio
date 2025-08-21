@@ -8,6 +8,7 @@ import Experience from "../components/Experience";
 import Projects from "../components/Projects";
 import CVDownloads from "../components/CVDownloads";
 import Contact from "../components/Contact";
+import FloatingNavigation from "../components/FloatingNavigation";
 import { Toaster } from "sonner";
 import { isAuthenticated } from "@/lib/auth";
 import { Settings } from "lucide-react";
@@ -50,6 +51,7 @@ const Index = () => {
         </div>
       )}
       
+      <FloatingNavigation />
       <Hero />
       <About />
       <Skills />
