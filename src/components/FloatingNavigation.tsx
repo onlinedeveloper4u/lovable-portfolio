@@ -63,8 +63,12 @@ const FloatingNavigation = () => {
           stiffness: 100,
           damping: 15
         }}
-        className="fixed right-6 top-[50%] -translate-y-[50%] z-50"
-        style={{ transform: "translateY(-50%)" }}
+        className="fixed z-50"
+        style={{ 
+          right: "24px",
+          top: "50vh",
+          transform: "translateY(-50%)"
+        }}
       >
         {/* Glass morphism container */}
         <div className="relative flex flex-col gap-3 p-2 rounded-2xl bg-background/30 backdrop-blur-xl border border-border/20 shadow-2xl">
