@@ -42,7 +42,7 @@ const Index = () => {
       
       {/* Admin button (only shows if authenticated) */}
       {isAuthenticated() && (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed top-6 left-6 z-50">
           <Link to="/admin">
             <Button size="icon" variant="secondary" className="rounded-full shadow-lg">
               <Settings className="h-5 w-5" />
